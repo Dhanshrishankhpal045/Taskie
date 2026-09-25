@@ -24,6 +24,7 @@ import {
   deleteActionItem,
 } from "../api/meetingApi";
 import type { Meeting } from "../api/meetingApi";
+import API_URL from "../apiConfig";
 import { downloadMeetingReport } from "../utils/reportGenerator";
 import {
   exportMeetingJSON,
@@ -36,7 +37,6 @@ interface MeetingDetailsProps {
   onBack: () => void;
 }
 
-const API_URL = "http://localhost:5000/api";
 
 function MeetingDetails({
   meeting,

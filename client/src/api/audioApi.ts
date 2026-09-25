@@ -1,7 +1,8 @@
 import axios from "axios";
+import API_URL from "../apiConfig";
 
-const API_URL =
-  "http://localhost:5000/api/audio";
+const AUDIO_API_URL =
+  `${API_URL}/api/audio`;
 
 interface TranscribeAudioResponse {
   message: string;
@@ -26,7 +27,7 @@ export const transcribeAudio = async (
   try {
     const response =
       await axios.post<TranscribeAudioResponse>(
-        `${API_URL}/transcribe`,
+        `${AUDIO_API_URL}/transcribe`,
         formData
       );
 

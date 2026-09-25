@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const API_URL = "http://localhost:5000/api/auth";
+import API_URL from "../apiConfig";
 
 const TOKEN_KEY = "taskie_token";
 
@@ -64,7 +63,7 @@ export const registerUser = async (
 
   try {
     const response = await axios.post<AuthResponse>(
-      `${API_URL}/register`,
+      `${API_URL}/api/auth/register`,
       {
         name: trimmedName,
         email: trimmedEmail,
@@ -122,7 +121,7 @@ export const loginUser = async (
 
   try {
     const response = await axios.post<AuthResponse>(
-      `${API_URL}/login`,
+      `${API_URL}/api/auth/login`,
       {
         email: trimmedEmail,
         password,
@@ -174,7 +173,7 @@ export const getCurrentUser = async (): Promise<User | null> => {
     setAuthToken(token);
 
     const response = await axios.get<MeResponse>(
-      `${API_URL}/me`
+      `${API_URL}/api/auth/me`
     );
 
     return response.data.user;
@@ -244,7 +243,7 @@ export const updateCurrentUser = async (
   try {
     const response =
       await axios.put<UpdateProfileResponse>(
-        `${API_URL}/profile`,
+        `${API_URL}/api/auth/profile`,
         payload
       );
 
